@@ -1,18 +1,20 @@
 export type WorkItem = {
   id: number;
-  title: string;
   image: string;
-  category: string;
+  label: string;
+  title?: string;
+  category?: string;
 };
 
-export const works: WorkItem[] = Array.from({ length: 48 }, (_, index) => {
+export const TOTAL_WORKS = 48;
+
+export const works: WorkItem[] = Array.from({ length: TOTAL_WORKS }, (_, index) => {
   const id = index + 1;
+  const label = String(id).padStart(2, '0');
+
   return {
     id,
-    title: `Project ${String(id).padStart(2, '0')}`,
-    image: `/works/${String(id).padStart(2, '0')}.png`,
-    category: id <= 16 ? 'Mobile UI' : id <= 32 ? 'Visual System' : 'Operation Design',
+    label,
+    image: `/works/${label}.png`,
   };
 });
-
-export const featuredWorks = works.slice(0, 6);

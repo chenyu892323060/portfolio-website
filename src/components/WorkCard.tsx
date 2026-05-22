@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { WorkItem } from '@/data/works';
 
 export function WorkCard({ work, index, onClick }: { work: WorkItem; index: number; onClick: () => void }) {
+  const caption = work.label ? `Work ${work.label}` : `Work ${String(index + 1).padStart(2, '0')}`;
+
   return (
     <motion.button
       type="button"
@@ -19,15 +21,14 @@ export function WorkCard({ work, index, onClick }: { work: WorkItem; index: numb
       <div className="relative aspect-video overflow-hidden">
         <Image
           src={work.image}
-          alt={work.title}
+          alt={caption}
           fill
           className="object-contain transition duration-500 group-hover:scale-[1.03]"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
       <div className="p-4">
-        <h3 className="text-sm font-medium text-white md:text-base">{work.title}</h3>
-        <p className="mt-1 text-xs text-muted md:text-sm">{work.category}</p>
+        <h3 className="text-sm font-medium text-white md:text-base">{caption}</h3>
       </div>
     </motion.button>
   );

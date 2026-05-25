@@ -2,7 +2,6 @@ export type WorkItem = {
   id: string;
   index: number;
   src: string;
-  webpSrc: string;
   alt: string;
 };
 
@@ -16,7 +15,6 @@ export const works: WorkItem[] = Array.from({ length: TOTAL_WORKS }, (_, idx) =>
     id: `work-${number}`,
     index,
     src: `/works/P${number}.png`,
-    webpSrc: `/works/P${number}.webp`,
     alt: `Portfolio work ${number}`,
   };
 });

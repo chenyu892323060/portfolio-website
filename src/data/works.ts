@@ -1,20 +1,23 @@
 export type WorkItem = {
-  id: number;
+  id: string;
   index: number;
-  src: string;
   label: string;
+  src: string;
+  alt: string;
 };
 
-export const TOTAL_WORKS = 48;
+export const TOTAL_WORKS = 59;
+const WORK_EXT = 'png';
 
-export const works: WorkItem[] = Array.from({ length: TOTAL_WORKS }, (_, i) => {
-  const index = i + 1;
-  const label = String(index).padStart(2, '0');
+export const works: WorkItem[] = Array.from({ length: TOTAL_WORKS }, (_, idx) => {
+  const index = idx + 1;
+  const number = String(index).padStart(2, '0');
 
   return {
-    id: index,
+    id: `work-${number}`,
     index,
-    label,
-    src: `/works/${label}.png`,
+    label: `${number} / ${TOTAL_WORKS}`,
+    src: `/works/P${number}.${WORK_EXT}`,
+    alt: `Portfolio screen ${number}`,
   };
 });

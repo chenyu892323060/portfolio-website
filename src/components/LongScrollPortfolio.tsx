@@ -5,7 +5,13 @@ import { works } from '@/data/works';
 
 function PortfolioImage({ src, alt, priority }: { src: string; alt: string; priority: boolean }) {
   return (
-    <motion.figure className="work-frame" initial={{ opacity: 0.58, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.5 }}>
+    <motion.figure
+      className="work-frame"
+      initial={{ opacity: 0.4, y: 24, filter: 'contrast(0.92)' }}
+      whileInView={{ opacity: 1, y: 0, filter: 'contrast(1)' }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.55, ease: 'easeOut' }}
+    >
       <img src={src} alt={alt} className="work-image" loading={priority ? 'eager' : 'lazy'} decoding="async" fetchPriority={priority ? 'high' : 'auto'} />
     </motion.figure>
   );

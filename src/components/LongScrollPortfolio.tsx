@@ -7,13 +7,17 @@ function WorkImageFrame({ src, alt, priority }: { src: string; alt: string; prio
   return (
     <figure className="work-frame">
       <picture>
-        <img
+        <motion.img
           src={src}
           alt={alt}
           className="work-image"
           loading={priority ? 'eager' : 'lazy'}
           decoding="async"
           fetchPriority={priority ? 'high' : 'auto'}
+          initial={{ opacity: 0.92, scale: 1.035, filter: 'blur(4px)' }}
+          whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
         />
       </picture>
     </figure>
@@ -22,19 +26,12 @@ function WorkImageFrame({ src, alt, priority }: { src: string; alt: string; prio
 
 export function LongScrollPortfolio() {
   return (
-    <motion.section
-      id="works"
-      className="long-scroll-wrap"
-      initial={{ opacity: 0.2 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.02 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-    >
+    <section id="works" className="long-scroll-wrap">
       <div className="long-scroll-canvas">
         {works.map((work, index) => (
           <WorkImageFrame key={work.id} src={work.src} alt={work.alt} priority={index < 3} />
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 }

@@ -2,7 +2,7 @@
 
 import { AmbientBackground } from './AmbientBackground';
 import { ContactSection } from './ContactSection';
-import { CursorGlow } from './CursorGlow';
+import { FluidCursorTrail } from './FluidCursorTrail';
 import { ImmersiveHero } from './ImmersiveHero';
 import { LongScrollPortfolio } from './LongScrollPortfolio';
 import { ScrollProgress } from './ScrollProgress';
@@ -17,7 +17,7 @@ export function PortfolioExperience() {
   return (
     <main>
       <AmbientBackground />
-      <CursorGlow />
+      <FluidCursorTrail />
       <ScrollProgress />
       <SiteHeader />
       <ImmersiveHero onStart={scrollToWorks} />

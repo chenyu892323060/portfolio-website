@@ -8,8 +8,7 @@ html, body { margin: 0; max-width: 100%; overflow-x: hidden; background: #05060b
 
 main { position: relative; min-height: 100vh; isolation: isolate; background: radial-gradient(circle at 16% 5%, rgba(80, 125, 255, .22), transparent 36%), radial-gradient(circle at 84% 22%, rgba(47, 231, 198, .12), transparent 34%), #05060b; }
 
-.ambient-bg{position:fixed;inset:0;pointer-events:none;z-index:-1}
-.cursor-glow{position:fixed;inset:0;pointer-events:none;z-index:20;mix-blend-mode:screen}
+.ambient-bg,.cursor-glow{position:fixed;inset:0;pointer-events:none;z-index:-1}
 .ambient-bg{background:radial-gradient(65vw 42vw at calc(50% + var(--mx-offset)) calc(26% + var(--my-offset)),rgba(94,132,255,.16),transparent 62%)}
 .ambient-grid{position:absolute;inset:0;opacity:.14;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(circle at 50% 18%, black 36%, transparent 82%)}
 .ambient-noise{position:absolute;inset:0;opacity:.15;background-image:radial-gradient(#fff 0.6px,transparent .8px);background-size:3px 3px}
@@ -19,7 +18,7 @@ main { position: relative; min-height: 100vh; isolation: isolate; background: ra
 .cursor-glow{opacity:calc(.56 + var(--glow-boost) * .26);transition:opacity .22s ease;background:radial-gradient(480px circle at var(--mx) var(--my),rgba(144,178,255,.24),rgba(122,110,255,.16) 36%,rgba(90,255,218,.1) 57%,transparent 72%)}
 
 .scroll-progress{position:fixed;top:0;left:0;z-index:90;width:100%;height:2px;transform-origin:left;background:linear-gradient(90deg,#8ed4ff,#c6b9ff,#8fffd6)}
-.site-header{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:50;width:min(1080px,95vw);display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:rgba(7,10,19,.36);backdrop-filter:blur(14px);transition:background .3s,border-color .3s}
+.site-header{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:80;width:min(1080px,95vw);display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:rgba(7,10,19,.36);backdrop-filter:blur(14px);transition:background .3s,border-color .3s}
 .site-header.is-scrolled{background:rgba(7,10,19,.68);border-color:rgba(255,255,255,.23)}
 .site-header nav{display:flex;gap:8px}
 .site-header button{border:0;border-radius:999px;padding:7px 12px;color:rgba(240,244,255,.86);background:transparent;transition:transform .18s ease,background .18s ease}

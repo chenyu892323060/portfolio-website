@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { MagneticButton } from './MagneticButton';
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,9 +19,9 @@ export function SiteHeader() {
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
       <strong>Portfolio</strong>
       <nav>
-        <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Top</button>
-        <button type="button" onClick={() => scrollToId('works')}>Works</button>
-        <button type="button" onClick={() => scrollToId('contact')}>Contact</button>
+        <MagneticButton className="nav-pill" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Top</MagneticButton>
+        <MagneticButton className="nav-pill" onClick={() => scrollToId('works')}>Works</MagneticButton>
+        <MagneticButton className="nav-pill" onClick={() => scrollToId('contact')}>Contact</MagneticButton>
       </nav>
     </header>
   );

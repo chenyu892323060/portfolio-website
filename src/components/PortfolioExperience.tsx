@@ -1,8 +1,12 @@
 'use client';
 
+import { AmbientBackground } from './AmbientBackground';
 import { ContactSection } from './ContactSection';
+import { CursorGlow } from './CursorGlow';
+import { ImmersiveHero } from './ImmersiveHero';
 import { LongScrollPortfolio } from './LongScrollPortfolio';
 import { ScrollProgress } from './ScrollProgress';
+import { ScrollToExplore } from './ScrollToExplore';
 import { SiteHeader } from './SiteHeader';
 
 export function PortfolioExperience() {
@@ -12,29 +16,13 @@ export function PortfolioExperience() {
 
   return (
     <main>
+      <AmbientBackground />
+      <CursorGlow />
       <ScrollProgress />
       <SiteHeader />
-
-      <section className="hero-section">
-        <div className="hero-inner">
-          <p className="hero-kicker">PORTFOLIO</p>
-          <h1>Senior UI Designer Portfolio</h1>
-          <p>
-            A continuous visual archive of mobile app interfaces, operation pages, product systems, and visual design
-            works.
-          </p>
-          <button type="button" onClick={scrollToWorks}>
-            Start Viewing
-          </button>
-        </div>
-      </section>
-
+      <ImmersiveHero onStart={scrollToWorks} />
+      <ScrollToExplore />
       <LongScrollPortfolio />
-
-      <button className="back-to-top" type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-        ↑ Top
-      </button>
-
       <ContactSection />
     </main>
   );

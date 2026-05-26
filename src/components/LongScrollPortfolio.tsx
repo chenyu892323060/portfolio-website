@@ -14,10 +14,10 @@ function WorkImageFrame({ src, alt, priority }: { src: string; alt: string; prio
           loading={priority ? 'eager' : 'lazy'}
           decoding="async"
           fetchPriority={priority ? 'high' : 'auto'}
-          initial={{ opacity: 0.92, scale: 1.035, filter: 'blur(4px)' }}
+          initial={{ opacity: 0.94, scale: 1.035, filter: 'blur(3px)' }}
           whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, amount: 0.18 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         />
       </picture>
     </figure>

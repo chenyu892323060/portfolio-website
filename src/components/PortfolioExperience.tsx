@@ -6,6 +6,7 @@ import { CursorGlow } from './CursorGlow';
 import { ImmersiveHero } from './ImmersiveHero';
 import { LongScrollPortfolio } from './LongScrollPortfolio';
 import { ScrollProgress } from './ScrollProgress';
+import { ScrollToExplore } from './ScrollToExplore';
 import { SiteHeader } from './SiteHeader';
 
 export function PortfolioExperience() {
@@ -20,6 +21,7 @@ export function PortfolioExperience() {
       <ScrollProgress />
       <SiteHeader />
       <ImmersiveHero onStart={scrollToWorks} />
+      <ScrollToExplore />
       <LongScrollPortfolio />
       <ContactSection />
     </main>

@@ -10,11 +10,13 @@ export function CursorGlow() {
     const onMove = (event: MouseEvent) => {
       root.style.setProperty('--mx', `${event.clientX}px`);
       root.style.setProperty('--my', `${event.clientY}px`);
+      root.style.setProperty('--mx-offset', `${(event.clientX / window.innerWidth - 0.5) * 24}px`);
+      root.style.setProperty('--my-offset', `${(event.clientY / window.innerHeight - 0.5) * 20}px`);
     };
 
     const onOver = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
-      root.style.setProperty('--glow-boost', target?.closest('button, a, .work-frame') ? '1' : '0');
+      root.style.setProperty('--glow-boost', target?.closest('button, a, .work-frame, .work-image') ? '1' : '0');
     };
 
     window.addEventListener('mousemove', onMove, { passive: true });

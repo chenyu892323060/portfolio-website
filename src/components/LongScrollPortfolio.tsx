@@ -5,15 +5,20 @@ import { works } from '@/data/works';
 
 function PortfolioImage({ src, alt, priority }: { src: string; alt: string; priority: boolean }) {
   return (
-    <motion.figure
-      className="work-frame"
-      initial={{ opacity: 0.4, y: 24, filter: 'contrast(0.92)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'contrast(1)' }}
-      viewport={{ once: true, amount: 0.12 }}
-      transition={{ duration: 0.55, ease: 'easeOut' }}
-    >
-      <img src={src} alt={alt} className="work-image" loading={priority ? 'eager' : 'lazy'} decoding="async" fetchPriority={priority ? 'high' : 'auto'} />
-    </motion.figure>
+    <figure className="work-frame">
+      <motion.img
+        src={src}
+        alt={alt}
+        className="work-image"
+        loading={priority ? 'eager' : 'lazy'}
+        decoding="async"
+        fetchPriority={priority ? 'high' : 'auto'}
+        initial={{ opacity: 0.92, filter: 'blur(6px)', scale: 1.012 }}
+        whileInView={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
+        viewport={{ once: true, amount: 0.14 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+      />
+    </figure>
   );
 }
 
